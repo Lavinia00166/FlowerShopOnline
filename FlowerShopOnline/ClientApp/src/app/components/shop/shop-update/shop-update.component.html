@@ -1,0 +1,23 @@
+<div *ngIf="shop">
+
+  <h1 id="tableLabel">Update shop</h1>
+  <form>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="street">Street</label>
+        <input type="text" class="form-control" [(ngModel)]="shop.street" name="street">
+      </div>
+      <div class="form-group col-md-2">
+        <label for="number">Number</label>
+        <input type="text" class="form-control" [(ngModel)]="shop.number" name="number">
+      </div>
+      <div class="form-group col-md-3">
+        <label for="zip">Zip</label>
+        <input type="text" class="form-control" [(ngModel)]="shop.zip" name="zip">
+      </div>
+    </div>
+  </form>
+
+  <button class="btn btn-success mr-2" (click)="saveShop()">Save shop</button>
+  <button class="btn btn-secondary" (click)="backToList()">Back</button>
+</div>

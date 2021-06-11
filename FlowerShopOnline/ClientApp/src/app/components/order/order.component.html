@@ -1,0 +1,33 @@
+<h1 id="tableLabel">Orders</h1>
+
+<p>This component demonstrates fetching orders from the server.</p>
+
+<button class="nav-link text-dark" [routerLink]="['/orders-add']">Add Orders</button>
+
+<p *ngIf="!orders"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="orders">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Order Date</th>
+      <th>Status</th>
+      <th>Client</th>
+      <th>Shop</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let order of orders">
+      <td>{{ order.id }}</td>
+      <td>{{ order.orderDate }}</td>
+      <td>{{ order.status }}</td>
+      <td>{{ client.firstName }}</td>
+      <td>{{ shop.street }}</td>
+
+      <td><button class="btn btn-danger" (click)="deleteOrder(order)">delete</button></td>
+      <td><a href="/orders-update?id={{order.id}}" class="btn btn-success">update</a></td>
+    </tr>
+  </tbody>
+</table>

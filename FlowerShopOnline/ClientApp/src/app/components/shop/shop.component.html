@@ -1,0 +1,31 @@
+<h1 id="tableLabel">Shops</h1>
+
+<p>This component demonstrates fetching shops from the server.</p>
+
+<button class="nav-link text-dark" [routerLink]="['/shops-add']">Add shops</button>
+
+<p *ngIf="!shops"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="shops">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Street</th>
+      <th>Number</th>
+      <th>ZIP</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let shop of shops">
+      <td>{{ shop.id }}</td>
+      <td>{{ shop.street }}</td>
+      <td>{{ shop.streetNumber }}</td>
+      <td>{{ shop.zip }}</td>
+
+      <td><button class="btn btn-danger" (click)="deleteShop(shop)">delete</button></td>
+      <td><a href="/shops-update?id={{shop.id}}" class="btn btn-success">update</a></td>
+    </tr>
+  </tbody>
+</table>

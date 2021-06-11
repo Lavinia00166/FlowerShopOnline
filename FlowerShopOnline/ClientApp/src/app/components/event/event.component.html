@@ -1,0 +1,29 @@
+<h1 id="tableLabel">Events</h1>
+
+<p>This component demonstrates fetching events from the server.</p>
+
+<button class="nav-link text-dark" [routerLink]="['/events-add']">Add Events</button>
+
+<p *ngIf="!events"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="events">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Description</th>
+      <th>Product</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let event of events">
+      <td>{{ event.id }}</td>
+      <td>{{ event.description }}</td>
+      <td>{{ event.productId }}</td>
+
+      <td><button class="btn btn-danger" (click)="deleteEvent(event)">delete</button></td>
+      <td><a href="/events-update?id={{event.id}}" class="btn btn-success">update</a></td>
+    </tr>
+  </tbody>
+</table>

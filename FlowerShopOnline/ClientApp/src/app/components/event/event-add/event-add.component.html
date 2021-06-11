@@ -1,0 +1,15 @@
+<h1 id="tableLabel">Add Event</h1>
+
+<form>
+  <div class="form-group">
+    <label for="description">Description</label>
+    <textarea class="form-control" [(ngModel)]="event.description" name="description" rows="3"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="product">Product</label>
+    <textarea class="form-control" [(ngModel)]="event.productId" name="productId" rows="3"></textarea>
+  </div>
+</form>
+
+<button class="btn btn-primary mr-2" (click)="saveEvent()">Save Event</button>
+<button class="btn btn-secondary" (click)="backToList()">Back</button>

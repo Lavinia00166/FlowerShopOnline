@@ -1,0 +1,33 @@
+<h1 id="tableLabel">Products</h1>
+
+<p>This component demonstrates fetching products from the server.</p>
+
+<button class="nav-link text-dark" [routerLink]="['/products-add']">Add Products</button>
+
+<p *ngIf="!products"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="products">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Picture</th>
+      <th>Type</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products">
+      <td>{{ product.id }}</td>
+      <td>{{ product.name }}</td>
+      <td>{{ product.price }}</td>
+      <td>{{ product.picture }}</td>
+      <td>{{ product.type }}</td>
+
+      <td><button class="btn btn-danger" (click)="deleteProduct(product)">delete</button></td>
+      <td><a href="/products-update?id={{product.id}}" class="btn btn-success">update</a></td>
+    </tr>
+  </tbody>
+</table>
